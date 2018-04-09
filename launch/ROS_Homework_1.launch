@@ -1,0 +1,6 @@
+<launch>
+    <node name="publisher" pkg="ROS_Homework_1" type="publisher" output="screen" required="true"/>
+    <node name="selector" pkg="ROS_Homework_1" type="selector" output="screen" required="true"/>
+    <node name="viewer" pkg="ROS_Homework_1" type="viewer" output="screen" required="true"/>
+</launch>
+
