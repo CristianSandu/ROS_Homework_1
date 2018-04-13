@@ -200,11 +200,11 @@ include_directories(
 # catkin_add_nosetests(test)
 
 
-add_executable(publisher src/publisher.cpp)
-target_link_libraries(publisher ${catkin_LIBRARIES})
-
 add_executable(selector src/selector.cpp)
 target_link_libraries(selector ${catkin_LIBRARIES})
+
+add_executable(sender src/sender.cpp)
+target_link_libraries(sender ${catkin_LIBRARIES})
 
 add_executable(viewer src/viewer.cpp)
 target_link_libraries(viewer ${catkin_LIBRARIES})
