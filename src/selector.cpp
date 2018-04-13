@@ -2,18 +2,15 @@
 #include "std_msgs/String.h"
 #include "ROS_Homework_1/Num.h"
 #include <sstream>
-#include <string>
 
-
-
-void selectorCallback(const ROS_Homework_1::Num& msg)
-{
- 
 /*
-* Stampa il menu e chiede all'utente cosa vuole che venga stampato
+* Stampa il menu e chiede all'utente cosa vuole che venga inviato.
+* Salva la scelta in una variabile choice la quale viene ritornata e inserita poi nel messaggio.
 *
 */
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+char stampa_menu(){
+
+
   char choice;
 
 do{
@@ -22,61 +19,47 @@ do{
    std::cin >> choice;
   }while (!(choice != 'a' || choice != 'e' || choice != 'n' || choice != 'c' || choice != 'x'));
   
-/*
-* A seconda della scelta viene selezionata una parte del messaggio e messa in un oggetto di tipo StringStream 
-*
-*/
+return choice;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-  std::stringstream ss;
-
-  if(choice == 'a' )
-	ss << "Nome: " << msg.nome << ".\n" <<"Eta: " << msg.eta <<".\n"<< "Corso di laurea: " << msg.corso_di_laurea << ".\n";
-  else if(choice == 'n')
-	ss << "Nome: " << msg.nome << ".\n";
-  else if(choice == 'e')
-	ss <<"Eta: " << msg.eta <<".\n";
-  else if(choice == 'c')
-	ss << "Corso di laurea: " << msg.corso_di_laurea << ".\n";
-  else if(choice == 'x')
-	system("pkill roslaunch");// uccido	
-	//ros::shutdown();
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
-
-
- ros::NodeHandle node;
-
- static ros::Publisher partial_pub = node.advertise<std_msgs::String>("partial", 1000);
- static ros::Rate loop_rate(1);
-    
-
-    std_msgs::String message;
-    message.data = ss.str();
-    
-    partial_pub.publish(message);
-
-    ros::spinOnce();
-    loop_rate.sleep();
- 
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 }
+
 
 
 int main(int argc, char **argv)
 {
   
+  // Inizializzazione del nodo 
   ros::init(argc, argv, "selector");
-  
+ 
+ //Dichiaro l'handler del nodo
   ros::NodeHandle n;
-  
-  ros::Subscriber sub = n.subscribe("complete", 1000, selectorCallback);
-  
 
-  ros::spin();
+  // Il publisher scrive sul topic comando con un buffer di 1000
+  ros::Publisher selector_pub = n.advertise<std_msgs::String>("comando", 1000);
+
+  // 1 message per second
+  ros::Rate loop_rate(1); 
+
   
+  while (ros::ok())
+  {
+    
+    //Il messaggio da inviare è il carattere scelto
+    std_msgs::String msg;
+    msg.data = stampa_menu();
+
+    //publica il messaggio
+    selector_pub.publish(msg);
+
+
+    ros::spinOnce();
+    
   
+    loop_rate.sleep();
+
+  }
+
+
   return 0;
 }
 
