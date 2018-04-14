@@ -1,10 +1,8 @@
 # ROS_Homework_1 <br>my homework ros package
 ------------------------------------------------------------------------
 
-## University of Verona (Italy)
-## A.Y. 2017/2018<br>
-## Laboratorio Ciberfisico<br>
-## Ros Programing<br>
+## University of Verona (Italy) A.A. 2017/2018<br>
+## Laboratorio Ciberfisico - Ros Programing<br>
 
 
 ### Il compito assegnato è:<br>
@@ -30,15 +28,15 @@ Il nodo che permette di selezionare da tastiera quale parte del messaggio mostra
 
 $ git clone https://github.com/CristianSandu/ROS_Homework_1.git
 
-#. Compilare il pacchetto utilizzando il commando:
+# Compilare il pacchetto utilizzando il commando:
 
 $ catkin_make --pkg ROS_Homework_1
 
-#. Dentro alla cartella launch del pacchetto si trova un file bash chiamato launch.sh Dare i permessi con il seguente commando
+# Dentro alla cartella launch del pacchetto si trova un file bash chiamato launch.sh Dare i permessi con il seguente commando
 
 $ chmod +x ROS_Homework_1/launch/launch.sh
 
-#. Eseguire il launch.sh per avviare i nodi:
+# Eseguire il launch.sh per avviare i nodi:
 
 $ ROS_Homework_1/launch/launch.sh
 
@@ -82,9 +80,10 @@ viene visualizzato il seguente grafo nel quale si vedono i nodi e i topic:
 ### Autore <br>
 ------------------------------------------------------------------------
 
-[Sandu Alin Cristinel](https://github.com/CristianSandu)
-[Università degli Studi di Verona](http://www.univr.it/jsp/index.jsp) 
+[Sandu Alin Cristinel](https://github.com/CristianSandu)<br>
+[Università degli Studi di Verona](http://www.univr.it/jsp/index.jsp)<br> 
 
 
-Please, report suggestions/comments/bugs to<br>
-[Sandu Alin Cristinel](alincristinel.sandu@gmail.com)
+Please, report suggestions/comments/bugs to:<br>
+alincristinel.sandu@gmail.com<br>
+
