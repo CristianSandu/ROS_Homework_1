@@ -28,15 +28,15 @@ Il nodo che permette di selezionare da tastiera quale parte del messaggio mostra
 
 $ git clone https://github.com/CristianSandu/ROS_Homework_1.git
 
-# Compilare il pacchetto utilizzando il commando:
+* Compilare il pacchetto utilizzando il commando:
 
 $ catkin_make --pkg ROS_Homework_1
 
-# Dentro alla cartella launch del pacchetto si trova un file bash chiamato launch.sh Dare i permessi con il seguente commando
+* Dentro alla cartella launch del pacchetto si trova un file bash chiamato launch.sh Dare i permessi con il seguente commando
 
 $ chmod +x ROS_Homework_1/launch/launch.sh
 
-# Eseguire il launch.sh per avviare i nodi:
+* Eseguire il launch.sh per avviare i nodi:
 
 $ ROS_Homework_1/launch/launch.sh
 
